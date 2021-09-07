@@ -7,20 +7,6 @@ class Init {
   }
 
   init() {
-    if (document.querySelectorAll('.projects-slider__content').length) {
-      const sliders = document.querySelectorAll('.projects-slider__content')
-      sliders.forEach((item) => {
-        this.actions().initCardsSlider(item)
-      })
-    }
-
-    if (document.querySelectorAll('.photo__slider').length) {
-      const sliders = document.querySelectorAll('.photo__slider')
-      sliders.forEach((item) => {
-        this.actions().initPhotoSlider(item)
-      })
-    }
-
     if (document.querySelectorAll('.project__gallery').length) {
       const sliders = document.querySelectorAll('.project__gallery')
       sliders.forEach((item) => {
@@ -51,56 +37,6 @@ class Init {
               1200: {
                 slidesPerView: 3
               }
-            }
-          }))()
-      },
-      initPhotoSlider(el) {
-        const pagination = el.querySelector('.swiper-pagination')
-        ;(() =>
-          new Swiper(el, {
-            slidesPerView: 1,
-            resistanceRatio: 0,
-            threshold: 5,
-            spaceBetween: 5,
-            nested: true,
-            pagination: {
-              el: pagination,
-              type: 'bullets',
-              clickable: true
-            }
-          }))()
-      },
-      initProjectPageSlider(el) {
-        const slider = el.querySelector('.project-gallery__slider')
-        const thumbs = el.querySelector('.project-gallery__thumbs')
-        const pagination = el.querySelector('.swiper-pagination')
-        const thumbsSlider = new Swiper(thumbs, {
-          slidesPerView: 5,
-          resistanceRatio: 0,
-          threshold: 5,
-          spaceBetween: 10,
-          breakpoints: {
-            768: {
-              spaceBetween: 14
-            },
-            1200: {
-              spaceBetween: 20
-            }
-          }
-        })
-        ;(() =>
-          new Swiper(slider, {
-            slidesPerView: 1,
-            resistanceRatio: 0,
-            threshold: 5,
-            spaceBetween: 5,
-            pagination: {
-              el: pagination,
-              type: 'bullets',
-              clickable: true
-            },
-            thumbs: {
-              swiper: thumbsSlider
             }
           }))()
       }

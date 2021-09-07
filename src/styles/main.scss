@@ -1,42 +1,62 @@
 @import '~normalize.css';
 @import 'variables/mixins';
 @import 'variables/indents';
-@import 'variables/fonts';
 
 :root {
-  --orange: #f9683b;
-  --orange-light: rgba(249, 104, 59, 0.05);
-  --orange-active: #f85725;
-  --violet-blue: #6f49ff;
-  --violet-blue-light: rgba(111, 73, 255, 0.1);
-  --violet-blue-light-light: rgba(111, 73, 255, 0.06);
-  --green: #27ae60;
-  --green-light: rgba(39, 174, 96, 0.06);
-  --red: #f5173e;
-  --red-light: rgba(245, 23, 62, 0.05);
-  --neutral-1: #151515;
-  --neutral-2: rgba(21, 21, 21, 0.9);
-  --neutral-3: rgba(21, 21, 21, 0.8);
-  --neutral-4: rgba(21, 21, 21, 0.7);
-  --neutral-5: rgba(21, 21, 21, 0.6);
-  --neutral-6: rgba(21, 21, 21, 0.5);
-  --neutral-7: rgba(21, 21, 21, 0.4);
-  --neutral-8: rgba(21, 21, 21, 0.3);
-  --neutral-9: rgba(21, 21, 21, 0.2);
-  --neutral-10: rgb(231, 231, 231);
-  --neutral-11: rgba(21, 21, 21, 0.06);
-  --neutral-12: rgba(21, 21, 21, 0.04);
-  --neutral-13: rgb(250 250 250);
-  --neutral-14: #ffffff;
-  --neutral-opacity: rgba(21, 21, 21, 0.35);
-  --neutral-light: rgba(255, 255, 255, 0.15);
-  --neutral-light-bright: rgba(255, 255, 255, 0.4);
-  --selection-color: rgba(249, 104, 59, 0.99);
-  --img-selection-color: rgba(249, 104, 59, 0.5);
+  --linear: linear-gradient(270deg, #c5b4ff 6.56%, #cdf7fb 36.06%, #c9e3fb 62.99%, #c5cdfc 94.22%);
+  --lianer-for-card: linear-gradient(272.21deg, #e8f4ff -50.97%, #edebff 126.1%);
+  --lianer-40: linear-gradient(
+    272.21deg,
+    rgba(232, 244, 255, 0.4) -50.97%,
+    rgba(237, 235, 255, 0.4) 126.1%
+  );
+  --violet-1: #5b72f2;
+  --violet-2: #6979f8;
+  --violet-3: #8794f9;
+  --violet-4: #a5afff;
+  --violet-5: #c5cdfc;
+  --violet-6: #e5e7fa;
+  --violet-7: #edeffe;
+  --lilac-1: #b29cff;
+  --lilac-2: #cabaff;
+  --lilac-3: #e0dcfd;
+  --lilac-4: #f1f0fc;
+  --blue-1: #4c9ce5;
+  --blue-2: #84c4ff;
+  --blue-3: #b4dbff;
+  --blue-4: #c9e3fb;
+  --blue-5: #e3edfd;
+  --neutrals-1: #454545;
+  --neutrals-2: #606060;
+  --neutrals-3: #808080;
+  --neutrals-4: #9f9f9f;
+  --neutrals-5: #bfbfbf;
+  --neutrals-6: #dfdfdf;
+  --neutrals-7: #e7e7e7;
+  --neutrals-8: #efefef;
+  --neutrals-9: #f3f3f3;
+  --neutrals-10: #f7f7f7;
+  --neutrals-11: #fafafa;
+  --neutrals-12: #ffffff;
+  --violet-hover: #b1bbf0;
+  --mint: #cdf7fb;
+  --blue-violet-light: #b4c8fb;
+  --blue-violet: #a5c4ff;
+  --red: #eb5757;
+  --green: #6fcf97;
+  --selection-color: rgba(91, 114, 242, 0.99);
+  --img-selection-color: rgba(91, 114, 242, 0.5);
+  --card-shadow: 0px 8px 40px rgba(78, 90, 186, 0.12);
+  --arrows-shadow: 0px 6px 25px rgba(78, 90, 186, 0.15);
+  --screen1-shadow: 0px 10px 40px rgba(78, 90, 186, 0.19);
+  --screen2-shadow: 0px 20px 40px rgba(78, 90, 186, 0.4);
+  --on-violet-shadow: 0px 20px 50px rgba(61, 84, 217, 0.3);
+  --on-violet-dark-shadow: 0px 5px 20px rgba(46, 65, 166, 0.3);
+  --inputs-shadow: 0px 8px 20px rgba(78, 90, 186, 0.13);
 }
 
 ::selection {
-  color: var(--neutral-14);
+  color: var(--neutrals-12);
   background-color: var(--selection-color);
 }
 
@@ -56,42 +76,26 @@ img::-moz-selection {
     display: none;
   }
   ::-webkit-scrollbar-thumb {
-    background: var(--orange);
+    background: var(--violet-1);
     border-radius: 2px;
   }
   ::-webkit-scrollbar-track {
-    background: var(--neutral-14);
-  }
-}
-
-html.fixed {
-  overflow: hidden;
-}
-
-html.compensate-for-scrollbar {
-  margin-right: 4px;
-  @-moz-document url-prefix() {
-    margin-right: 17px;
+    background: var(--neutrals-12);
   }
 }
 
 html {
-  background-color: var(--neutral-14);
+  background-color: var(--neutrals-12);
 }
 
 body {
-  font-family: 'Lato';
-  color: var(--neutral-1);
+  font-family: 'Open Sans';
+  color: var(--neutrals-1);
   font-size: 16px;
   line-height: 22px;
   text-rendering: optimizeLegibility;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-font-smoothing: antialiased;
-  transition: opacity 0.2s;
-  @include w1023 {
-    font-size: 14px;
-    line-height: 19px;
-  }
 }
 
 .wrapper {
@@ -102,56 +106,24 @@ body {
 }
 
 .content {
-  z-index: 0;
   flex: 1;
-  & + .padding-section {
-    @include w767 {
-      border: none;
-    }
-  }
 }
 
 .container {
   width: 100%;
-  max-width: 1320px;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 0 40px;
-  border-right: 1px solid var(--neutral-10);
-  border-left: 1px solid var(--neutral-10);
-  @include w1400 {
-    max-width: calc(100% - 80px);
-    padding: 0 22px;
+  padding: $padding-container;
+  @include w1200 {
+    padding: $tablet-padding-container;
   }
   @include w767 {
-    max-width: calc(100% - 48px);
+    padding: $mobile-padding-container;
   }
 }
 
-.padding-section {
-  padding-top: $margin-section;
-  @include w1200 {
-    padding-top: $tablet-margin-section;
-  }
-}
-
-.section-top {
-  padding-bottom: 60px;
-  @include w1200 {
-    padding-right: 0;
-    padding-bottom: 40px;
-    padding-left: 0;
-    border: none;
-  }
-}
-
-.border-block {
-  padding-left: 0;
-  list-style: none;
-  border-top: 1px solid var(--neutral-10);
-  border-bottom: 1px solid var(--neutral-10);
-  & + & {
-    border-top: none;
-  }
+.margin-section {
+  margin-bottom: $margin-section;
 }
 
 *,
@@ -171,10 +143,7 @@ ol {
 
 p {
   margin-top: 0;
-  margin-bottom: 22px;
-  @include w1023 {
-    margin-bottom: 19px;
-  }
+  margin-bottom: 25px;
   &:last-child {
     margin-bottom: 0;
   }
@@ -184,7 +153,8 @@ a {
   color: inherit;
   text-decoration: none;
   &:not([class]) {
-    color: var(--violet-blue);
+    margin-left: 5px;
+    color: var(--violet-1);
     @include hover {
       &:hover,
       &:focus {
@@ -197,10 +167,6 @@ a {
       }
     }
   }
-}
-
-b {
-  font-weight: 500;
 }
 
 img {
@@ -233,57 +199,43 @@ input[type='number'] {
 }
 
 .title {
-  margin: 0;
-  font-family: 'Raleway';
+  margin-top: 0;
+  margin-bottom: 70px;
+  font-family: 'Manrope';
   font-style: normal;
-  font-weight: bold;
-  font-size: 50px;
-  line-height: 59px;
-  letter-spacing: 0.02em;
-  @include w1200 {
-    font-size: 39px;
-    line-height: 46px;
-  }
-  @include w1023 {
-    font-size: 28px;
-    line-height: 33px;
-    letter-spacing: 0.01em;
-  }
-  @include w767 {
-    font-size: 24px;
-    line-height: 28px;
-  }
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 66px;
+  text-transform: uppercase;
 }
 
 .primary-btn {
   display: inline-block;
-  background: var(--orange);
-  border: 1px solid var(--orange);
-  border-radius: 6px;
+  background: var(--violet-3);
+  border: 2px solid var(--violet-3);
+  border-radius: 7px;
   text-align: center;
-  font-family: 'Raleway';
   font-weight: 600;
   font-size: 16px;
-  line-height: 19px;
-  color: var(--neutral-14);
-  transition: background 0.2s, border-color 0.2s;
+  line-height: 22px;
+  color: var(--neutrals-12);
+  transition: background 0.2s, border-color 0.2s, transform 0.3s cubic-bezier(0, 0, 0.2, 1);
   cursor: pointer;
-  letter-spacing: 0.01em;
-  @include w1023 {
-    font-size: 14px;
-    line-height: 16px;
-  }
   @include hover {
     &:hover,
     &:focus {
-      background: var(--orange-active);
-      border-color: var(--orange-active);
+      background: var(--violet-1);
+      border-color: var(--violet-1);
+    }
+    &:active {
+      transform: translate3d(0, 2px, 0) scale(0.95);
     }
   }
   @include active {
     &:active {
-      background: var(--orange-active);
-      border-color: var(--orange-active);
+      background: var(--violet-1);
+      border-color: var(--violet-1);
+      transform: translate3d(0, 2px, 0) scale(0.95);
     }
   }
 }
@@ -291,95 +243,28 @@ input[type='number'] {
 .secondary-btn {
   display: inline-block;
   background: none;
-  border: 1px solid var(--orange);
-  border-radius: 6px;
+  border: 2px solid var(--violet-3);
+  border-radius: 7px;
   text-align: center;
-  font-family: 'Raleway';
   font-weight: 600;
   font-size: 16px;
-  line-height: 19px;
-  color: var(--orange);
-  transition: background 0.2s;
+  line-height: 22px;
+  color: var(--violet-3);
+  transition: background 0.2s, border-color 0.2s, transform 0.3s cubic-bezier(0, 0, 0.2, 1);
   cursor: pointer;
-  letter-spacing: 0.01em;
-  @include w1023 {
-    font-size: 14px;
-    line-height: 16px;
-  }
   @include hover {
     &:hover,
     &:focus {
-      background: var(--orange-light);
+      background: var(--violet-7);
+    }
+    &:active {
+      transform: translate3d(0, 2px, 0) scale(0.95);
     }
   }
   @include active {
     &:active {
-      background: var(--orange-light);
-    }
-  }
-}
-
-.swiper {
-  &-button {
-    &-prev,
-    &-next {
-      width: auto;
-      height: auto;
-      margin-top: 0;
-      transform: translateY(-50%);
-      @include w767 {
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        background-color: var(--neutral-12);
-      }
-      @include hover {
-        &:hover,
-        &:focus {
-          path {
-            stroke: var(--violet-blue);
-          }
-        }
-      }
-      @include active {
-        &:active {
-          path {
-            stroke: var(--violet-blue);
-          }
-        }
-      }
-      &:after {
-        display: none;
-      }
-      &.swiper-button-disabled {
-        opacity: 0;
-      }
-      path {
-        transition: stroke 0.2s;
-      }
-    }
-  }
-  &-pagination {
-    &-bullet {
-      width: 5px;
-      height: 5px;
-      opacity: 1;
-      background-color: var(--neutral-light-bright);
-      transition: background-color 0.2s;
-      @include hover {
-        &:hover,
-        &:focus {
-          background-color: var(--violet-blue);
-        }
-      }
-      @include active {
-        &:active {
-          background-color: var(--violet-blue);
-        }
-      }
-      &-active {
-        background-color: var(--neutral-14);
-      }
+      background: var(--violet-7);
+      transform: translate3d(0, 2px, 0) scale(0.95);
     }
   }
 }
@@ -460,22 +345,10 @@ textarea {
 }
 
 @import 'blocks/common/header';
+@import 'blocks/common/breadcrumbs';
 @import 'blocks/common/footer';
-@import 'blocks/common/card-project';
-@import 'blocks/common/card-portfolio';
-@import 'blocks/common/form';
 @import 'blocks/mainpage/banner';
-@import 'blocks/mainpage/projects-slider';
-@import 'blocks/mainpage/stages';
-@import 'blocks/mainpage/payment';
-@import 'blocks/otherpages/projects';
-@import 'blocks/otherpages/project';
-@import 'blocks/otherpages/services';
-@import 'blocks/otherpages/contacts';
-@import 'blocks/otherpages/about';
-@import 'blocks/otherpages/materials';
-@import 'blocks/otherpages/information';
-@import 'blocks/otherpages/guarantee';
-@import 'blocks/otherpages/questions';
+@import 'blocks/otherpages/download';
+@import 'blocks/otherpages/documentation';
 @import 'blocks/otherpages/text';
 @import 'blocks/otherpages/404';

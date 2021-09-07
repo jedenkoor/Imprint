@@ -32,6 +32,8 @@ html(lang="ru")
   body
     .wrapper
       include includes/header.pug
+      if(breadcrumbs != 0)
+        include includes/breadcrumbs.pug
       main.content
         block content
       include includes/footer.pug
