@@ -7,36 +7,28 @@ class Init {
   }
 
   init() {
-    if (document.querySelectorAll('.project__gallery').length) {
-      const sliders = document.querySelectorAll('.project__gallery')
+    if (document.querySelectorAll('.tariffs__wrap').length) {
+      const sliders = document.querySelectorAll('.tariffs__wrap')
       sliders.forEach((item) => {
-        this.actions().initProjectPageSlider(item)
+        this.actions().iniTariffsSlider(item)
       })
     }
   }
 
   actions() {
     return {
-      initCardsSlider(el) {
-        const swiper = el.querySelector('.projects-slider__swiper')
+      iniTariffsSlider(el) {
+        const slider = el.querySelector('.tariffs__slider')
         const prevArr = el.querySelector('.swiper-button-prev')
         const nextArr = el.querySelector('.swiper-button-next')
         ;(() =>
-          new Swiper(swiper, {
-            slidesPerView: 1,
+          new Swiper(slider, {
+            slidesPerView: 4,
+            spaceBetween: 40,
             resistanceRatio: 0,
-            threshold: 5,
             navigation: {
               prevEl: prevArr,
               nextEl: nextArr
-            },
-            breakpoints: {
-              768: {
-                slidesPerView: 2
-              },
-              1200: {
-                slidesPerView: 3
-              }
             }
           }))()
       }

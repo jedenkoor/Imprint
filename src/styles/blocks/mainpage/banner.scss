@@ -1,120 +1,212 @@
 .banner {
-  border-bottom: 1px solid var(--neutral-10);
-  overflow: hidden;
+  margin-bottom: 120px;
+  background-color: var(--violet-2);
+  color: var(--neutrals-12);
   &__container {
     display: flex;
-    align-items: center;
-    @include w767 {
-      display: block;
-      padding: 0;
-      border: none;
-    }
+    justify-content: space-between;
+    padding-top: 100px;
+    padding-bottom: 100px;
   }
-  &__content {
-    padding: 40px 0;
-    @include w767 {
-      padding: 46px 0 47px;
-    }
+  &__col {
+    flex: 0 0 580px;
   }
   &__title {
     margin-top: 0;
-    margin-bottom: 22px;
-    font-family: 'Raleway';
-    font-weight: bold;
-    font-size: 61px;
-    line-height: 69px;
-    letter-spacing: 0.02em;
-    @include w1200 {
-      font-size: 48px;
-      line-height: 55px;
-    }
-    @include w1023 {
-      margin-bottom: 18px;
-      font-size: 35px;
-      line-height: 41px;
-      letter-spacing: 0.01em;
-    }
-    @include w767 {
-      margin-bottom: 14px;
-      font-size: 28px;
-      line-height: 33px;
-    }
-    span {
-      color: var(--violet-blue);
-    }
+    margin-bottom: 25px;
+    font-family: 'Manrope';
+    font-weight: 800;
+    font-size: 58px;
+    line-height: 70px;
+    text-transform: uppercase;
   }
   &__text {
-    margin-bottom: 40px;
-    max-width: 400px;
-    @include w1023 {
-      max-width: 290px;
-      margin-bottom: 36px;
-    }
-    @include w767 {
-      max-width: 270px;
-      margin-bottom: 34px;
-    }
+    margin-bottom: 83px;
+    font-size: 18px;
+    line-height: 25px;
   }
   &__btns {
     display: flex;
-    @include w767 {
-      display: block;
-    }
   }
   &__btn {
-    padding: 14px 31px;
-    @include w1023 {
-      padding: 10px 35px;
-    }
-    @include w767 {
-      width: 100%;
-    }
+    padding: 10px 26px;
     &:not(:last-child) {
-      margin-right: 20px;
-      @include w1023 {
-        margin-right: 14px;
+      margin-right: 15px;
+    }
+    &.primary-btn {
+      background: var(--neutrals-12);
+      border-color: var(--neutrals-12);
+      color: var(--violet-2);
+      @include hover {
+        &:hover,
+        &:focus {
+          background: var(--mint);
+          border-color: var(--mint);
+          color: var(--violet-1);
+        }
+        &:active {
+          transform: translate3d(0, 2px, 0) scale(0.95);
+        }
       }
-      @include w767 {
-        margin-right: 0;
-        margin-bottom: 12px;
+      @include active {
+        &:active {
+          background: var(--mint);
+          border-color: var(--mint);
+          color: var(--violet-1);
+          transform: translate3d(0, 2px, 0) scale(0.95);
+        }
+      }
+    }
+    &.secondary-btn {
+      border-color: var(--neutrals-12);
+      color: var(--neutrals-12);
+      @include hover {
+        &:hover,
+        &:focus {
+          background: var(--violet-3);
+        }
+        &:active {
+          transform: translate3d(0, 2px, 0) scale(0.95);
+        }
+      }
+      @include active {
+        &:active {
+          background: var(--violet-3);
+          transform: translate3d(0, 2px, 0) scale(0.95);
+        }
       }
     }
   }
-  &__picture {
-    align-self: stretch;
-    flex: 0 0 513px;
-    padding: 40px 0 40px 40px;
-    border-left: 1px solid var(--neutral-10);
-    @include w1400 {
-      flex: 0 0 461px;
-      padding: 22px 0 22px 22px;
-    }
-    @include w1200 {
-      flex: 0 0 471px;
-    }
-    @include w1023 {
-      flex: 0 0 206px;
-    }
-    @include w767 {
+  &__card {
+    flex: 0 0 550px;
+  }
+  &-card {
+    &__title {
       position: relative;
-      display: block;
-      flex: initial;
-      padding: 22px;
-      border-right: 1px solid var(--neutral-10);
+      z-index: 2;
+      padding: 18px 30px;
+      background-color: var(--neutrals-12);
+      border-radius: 7px 7px 0px 0px;
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 25px;
+      color: var(--violet-2);
     }
-    &:before {
-      @include w767 {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100vw;
-        width: 200vw;
-        height: 1px;
-        background-color: var(--neutral-10);
+    &__content {
+      display: grid;
+      grid-template-columns: repeat(2, calc(50% - 15px));
+      grid-gap: 30px;
+      padding: 30px;
+      background-color: var(--violet-2);
+      box-shadow: var(--on-violet-shadow);
+      border-radius: 0px 0px 7px 7px;
+    }
+    &__col {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      &:last-child {
+        .banner-card__row {
+          padding-bottom: 0;
+          border: none;
+        }
       }
     }
-  }
-  &__img {
-    border-radius: 6px;
+    &__row {
+      display: flex;
+      &:not(:last-child) {
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--violet-3);
+      }
+    }
+    &__subtitle {
+      margin-right: 15px;
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 25px;
+    }
+    &__value {
+      font-size: 18px;
+      line-height: 25px;
+      &:not(:last-child) {
+        margin-right: 15px;
+      }
+    }
+    &__hint {
+      position: relative;
+      display: flex;
+    }
+    &-hint {
+      &__icon {
+        width: 25px;
+        height: 25px;
+        padding: 0;
+        background: url('../images/icon-hint.svg') center/contain no-repeat;
+        border: none;
+        @include hover {
+          &:hover,
+          &:focus {
+            & + .banner-card-hint__content {
+              opacity: 1;
+              visibility: visible;
+              transition: opacity 0.3s, transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1),
+                visibility 0s 0s;
+            }
+          }
+        }
+        @include active {
+          &:active {
+            & + .banner-card-hint__content {
+              opacity: 1;
+              visibility: visible;
+              transition: opacity 0.3s, transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1),
+                visibility 0s 0s;
+            }
+          }
+        }
+      }
+      &__content {
+        position: absolute;
+        z-index: 2;
+        bottom: calc(100% + 15px);
+        left: 50%;
+        transform: translateX(-50%);
+        width: max-content;
+        max-width: 338px;
+        padding: 6px 12px;
+        background: var(--neutrals-12);
+        border-radius: 7px;
+        box-shadow: var(--on-violet-dark-shadow);
+        font-size: 14px;
+        line-height: 19px;
+        color: var(--neutrals-1);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1),
+          visibility 0s 0.3s;
+      }
+    }
+    &__map {
+      width: 100%;
+      flex: 1;
+      border-radius: 7px;
+      overflow: hidden;
+      [class*='ymaps-2'][class*='-copyrights-pane'],
+      [class*='ymaps-2'][class*='-controls__toolbar'],
+      [class*='ymaps-2'][class*='-controls__bottom'] {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        border: 0;
+        clip: rect(0 0 0 0);
+      }
+      [class*='ymaps-2'][class*='-ground-pane'] {
+        filter: contrast(90%);
+      }
+    }
   }
 }
