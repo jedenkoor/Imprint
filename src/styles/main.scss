@@ -96,6 +96,10 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-font-smoothing: antialiased;
+  @include w1023 {
+    font-size: 14px;
+    line-height: 19px;
+  }
 }
 
 .wrapper {
@@ -114,7 +118,7 @@ body {
   max-width: 1440px;
   margin: 0 auto;
   padding: $padding-container;
-  @include w1200 {
+  @include w1366 {
     padding: $tablet-padding-container;
   }
   @include w767 {
@@ -124,6 +128,9 @@ body {
 
 .margin-section {
   margin-bottom: $margin-section;
+  @include w1023 {
+    margin-bottom: $tablet-margin-section;
+  }
 }
 
 *,
@@ -207,6 +214,15 @@ input[type='number'] {
   font-size: 48px;
   line-height: 66px;
   text-transform: uppercase;
+  @include w1200 {
+    font-size: 41px;
+    line-height: 56px;
+  }
+  @include w1023 {
+    margin-bottom: 50px;
+    font-size: 34px;
+    line-height: 46px;
+  }
 }
 
 .primary-btn {
@@ -238,6 +254,10 @@ input[type='number'] {
       transform: translate3d(0, 2px, 0) scale(0.95);
     }
   }
+  @include w1023 {
+    font-size: 14px;
+    line-height: 19px;
+  }
 }
 
 .secondary-btn {
@@ -267,6 +287,10 @@ input[type='number'] {
       transform: translate3d(0, 2px, 0) scale(0.95);
     }
   }
+  @include w1023 {
+    font-size: 14px;
+    line-height: 19px;
+  }
 }
 
 .select {
@@ -289,68 +313,71 @@ input[type='number'] {
 input[type='text'],
 textarea {
   width: 100%;
-  border: none;
-  background: var(--neutral-13);
-  border-radius: 6px;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
+  background: var(--neutrals-12);
+  box-shadow: var(--inputs-shadow);
   font-size: 16px;
   line-height: 22px;
-  color: var(--neutral-1);
+  color: var(--neutrals-1);
   transition: 0.2s;
   @include w1023 {
     font-size: 14px;
     line-height: 19px;
   }
   &::placeholder {
-    color: var(--neutral-7);
+    color: var(--neutrals-4);
   }
   &:hover,
   &:focus {
-    border-color: var(--violet-blue);
+    border-color: var(--violet-3);
   }
   &:-webkit-autofill,
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus,
   &:-webkit-autofill:active {
-    box-shadow: 0 0 0px 1000px var(--neutral-13) inset;
-    -webkit-box-shadow: 0 0 0px 1000px var(--neutral-13) inset;
+    box-shadow: 0 0 0px 1000px var(--neutrals-12) inset;
+    -webkit-box-shadow: 0 0 0px 1000px var(--neutrals-12) inset;
     transition: background-color 5000s ease-in-out 0s;
-    -webkit-text-fill-color: var(--neutral-1);
+    -webkit-text-fill-color: var(--neutrals-1);
   }
   &.input-err {
     border-color: var(--red);
   }
   &.input-border {
-    border-color: var(--violet-blue);
+    border-color: var(--violet-3);
   }
 }
 
 input[type='text'] {
-  height: 50px;
-  padding: 0 22px;
+  height: 52px;
+  padding: 0 28px;
+  border-radius: 100px;
   @include w1023 {
-    height: 39px;
-    padding: 0 18px;
+    height: 49px;
   }
 }
 
 textarea {
-  height: 149px;
-  padding: 14px 22px;
+  height: 156px;
+  padding: 13px 28px;
   resize: none;
+  border-radius: 26px;
   @include w1023 {
-    height: 110px;
-    padding: 10px 18px;
+    height: 135px;
   }
 }
 
 @import 'blocks/common/header';
 @import 'blocks/common/breadcrumbs';
 @import 'blocks/common/footer';
+@import 'blocks/common/form';
 @import 'blocks/mainpage/banner';
 @import 'blocks/mainpage/about';
 @import 'blocks/mainpage/features';
 @import 'blocks/mainpage/tariffs';
+@import 'blocks/mainpage/included';
+@import 'blocks/mainpage/contacts';
+@import 'blocks/mainpage/faq';
 @import 'blocks/otherpages/download';
 @import 'blocks/otherpages/documentation';
 @import 'blocks/otherpages/text';

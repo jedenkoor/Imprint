@@ -13,6 +13,19 @@
     padding-bottom: 30px;
     display: flex;
     align-items: flex-start;
+    @include w1023 {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+    @include w767 {
+      display: block;
+    }
+  }
+  .header__logo {
+    @include w767 {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
   }
   &__list {
     display: grid;
@@ -20,6 +33,16 @@
     grid-gap: 15px 41px;
     padding-left: 0;
     list-style: none;
+    @include w1023 {
+      grid-template-columns: repeat(2, auto);
+    }
+    @include w767 {
+      grid-template-columns: repeat(2, 1fr);
+      margin-bottom: 20px;
+      padding: 20px 0;
+      border-top: 1px solid var(--violet-6);
+      border-bottom: 1px solid var(--violet-6);
+    }
   }
   &-list {
     &__link {
@@ -58,6 +81,9 @@
         color: var(--violet-1);
       }
     }
+    @include w767 {
+      text-align: left;
+    }
   }
   &__socials {
     display: flex;
@@ -93,24 +119,48 @@
       }
       @include active {
         &:active {
-          color: var(--violet-1);
+          background: var(--violet-2);
+          path {
+            stroke: var(--neutrals-12);
+          }
         }
       }
     }
   }
   &__bot {
+    display: flex;
     padding-top: 19px;
     padding-bottom: 19px;
-    display: flex;
+    @include w767 {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    @include w767 {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
     .footer-list__link {
       margin-right: 50px;
+      @include w1023 {
+        margin-right: 40px;
+      }
+      @include w767 {
+        margin-right: 0;
+        margin-bottom: 15px;
+      }
       &:first-child {
         margin-left: calc(125px + 5.3%);
+        @include w1023 {
+          margin-left: 0;
+        }
       }
     }
   }
   &__copiright {
     margin-left: auto;
     color: var(--neutrals-5);
+    @include w767 {
+      margin-left: 0;
+    }
   }
 }

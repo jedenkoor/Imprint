@@ -5,6 +5,13 @@
     grid-gap: 40px;
     padding-left: 0;
     list-style: none;
+    @include w1200 {
+      grid-gap: 24px;
+    }
+    @include w767 {
+      grid-template-columns: auto;
+      grid-gap: 20px;
+    }
   }
   &__item {
     display: flex;
@@ -19,15 +26,25 @@
     &__icon {
       display: flex;
       margin-bottom: 30px;
+      @include w1023 {
+        width: 73px;
+      }
+      svg {
+        width: 100%;
+        height: auto;
+      }
     }
     &__text {
+      margin-top: auto;
       margin-bottom: 15px;
       color: var(--neutrals-3);
     }
     &__btn {
       width: 100%;
-      margin-top: auto;
       padding: 6px 0;
+      @include w1023 {
+        padding: 10px 0;
+      }
     }
   }
 }

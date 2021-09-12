@@ -5,13 +5,21 @@
     grid-gap: 40px;
     padding-left: 0;
     list-style: none;
+    @include w1023 {
+      grid-gap: 24px;
+    }
   }
   &__category {
     position: relative;
+    display: flex;
+    flex-direction: column;
     padding: 30px 30px 30px 114px;
     background: var(--neutrals-12);
     box-shadow: var(--card-shadow);
     border-radius: 7px;
+    @include w1023 {
+      padding: 114px 30px 30px 30px;
+    }
   }
   &-category {
     &__icon {
@@ -31,11 +39,19 @@
       margin-bottom: 13px;
       font-size: 20px;
       line-height: 27px;
+      @include w1023 {
+        margin-bottom: 12px;
+        font-size: 18px;
+        line-height: 25px;
+      }
     }
     &__list {
       margin-bottom: 20px;
       padding-left: 0;
       list-style: none;
+      @include w1023 {
+        margin-bottom: 25px;
+      }
     }
     &__link {
       display: block;
@@ -53,8 +69,12 @@
           color: var(--violet-1);
         }
       }
+      @include w1023 {
+        padding: 13px 0;
+      }
     }
     &__more {
+      margin-top: auto;
       font-weight: 600;
       color: var(--violet-3);
       @include hover {
@@ -134,7 +154,14 @@
           }
         }
         svg {
+          flex-shrink: 0;
           margin-right: 10px;
+        }
+        span {
+          display: -webkit-box;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
         }
       }
       &__more {
@@ -188,10 +215,15 @@
       }
       &__sublink {
         display: block;
-        padding: 8px 15px;
+        padding: 0 15px;
         border-radius: 7px;
         color: var(--violet-1);
         transition: background-color 0.2s;
+        line-height: 38px;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
         @include hover {
           &:hover,
           &:focus {
