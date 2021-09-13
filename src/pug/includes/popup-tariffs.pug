@@ -1,0 +1,36 @@
+.popup
+  .popup__overlay
+  .popup__content
+    button.popup__close
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18 6L6 18" stroke="#BFBFBF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M6 6L18 18" stroke="#BFBFBF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    h3.popup__title Ваш тариф
+    .popup-tariffs__profiles.popup-tariffs-profiles
+      span.popup-tariffs__text Кол-во профилей
+      .popup-tariffs-profiles__select.select.select--active
+        button.popup-tariffs-profiles__btn.select__open 200
+        .popup-tariffs-profiles__list
+          label.popup-tariffs-profiles__item
+            input.visually-hidden(type="radio" name="profile" value="200" checked)
+            span 200
+          label.popup-tariffs-profiles__item
+            input.visually-hidden(type="radio" name="profile" value="2 000")
+            span 2 000
+          label.popup-tariffs-profiles__item
+            input.visually-hidden(type="radio" name="profile" value="10 000")
+            span 10 000
+          label.popup-tariffs-profiles__item
+            input.visually-hidden(type="radio" name="profile" value="123 000")
+            span 123 000
+    .popup-tariffs__row
+      label.popup-tariffs__timepayment
+        input.visually-hidden(type="radio" name="timepayment" value="month" checked)
+        span В месяц
+      label.popup-tariffs__timepayment
+        input.visually-hidden(type="radio" name="timepayment" value="year")
+        span В год
+    .popup-tariffs__price 800 $
+    
+

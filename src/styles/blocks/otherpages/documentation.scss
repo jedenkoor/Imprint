@@ -8,6 +8,10 @@
     @include w1023 {
       grid-gap: 24px;
     }
+    @include w767 {
+      grid-template-columns: auto;
+      grid-gap: 20px;
+    }
   }
   &__category {
     position: relative;
@@ -93,12 +97,18 @@
   &__container {
     display: flex;
     justify-content: space-between;
+    @include w767 {
+      flex-direction: column;
+    }
   }
   &__list {
     flex: 0 0 48.5%;
     margin-top: -12px;
     padding-left: 0;
     list-style: none;
+    @include w1023 {
+      flex: 0 0 calc(100% - 356px);
+    }
   }
   &__aside {
     position: sticky;
@@ -107,10 +117,72 @@
     background: var(--neutrals-12);
     box-shadow: var(--card-shadow);
     border-radius: 7px;
+    @include w1023 {
+      top: 81px;
+      padding: 24px 15px;
+    }
+    @include w767 {
+      position: fixed;
+      top: 127px;
+      width: calc(100% - 48px);
+      max-height: calc(100vh - 130px);
+      overflow-y: auto;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(6px);
+      transition: opacity 0.3s, transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1),
+        visibility 0s 0.3s;
+    }
+    &--active {
+      @include w767 {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        transition: opacity 0.3s, transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1),
+          visibility 0s 0s;
+      }
+    }
   }
   &-aside {
     &__wrap {
       flex: 0 0 300px;
+      @include w1023 {
+        flex: 0 0 312px;
+      }
+      @include w767 {
+        order: -1;
+        flex: auto;
+      }
+    }
+    &__open {
+      position: fixed;
+      top: 86px;
+      right: 24px;
+      display: none;
+      align-items: center;
+      padding: 6px 16px;
+      border: none;
+      border-radius: 50px;
+      background: var(--neutrals-12);
+      box-shadow: var(--arrows-shadow);
+      color: var(--violet-2);
+      transition: background 0.2s, color 0.2s;
+      @include w767 {
+        display: flex;
+      }
+      &:active {
+        background: var(--violet-2);
+        color: var(--neutrals-12);
+        path {
+          stroke: var(--neutrals-12);
+        }
+      }
+      svg {
+        margin-left: 9px;
+      }
+      path {
+        transition: stroke 0.2s;
+      }
     }
     &__list {
       padding-left: 0;
@@ -153,15 +225,23 @@
             background-color: var(--violet-7);
           }
         }
+        @include w1023 {
+          padding: 7px 15px 6px;
+        }
         svg {
           flex-shrink: 0;
           margin-right: 10px;
+          @include w1023 {
+            width: 20px;
+            height: auto;
+          }
         }
         span {
           display: -webkit-box;
           -webkit-line-clamp: 1;
           -webkit-box-orient: vertical;
           overflow: hidden;
+          padding-right: 20px;
         }
       }
       &__more {
@@ -189,6 +269,9 @@
             }
           }
         }
+        @include w1023 {
+          height: 33px;
+        }
         &:after {
           content: '';
           position: absolute;
@@ -207,6 +290,9 @@
         margin-top: 4px;
         padding-left: 32px;
         list-style: none;
+        @include w1023 {
+          padding-left: 30px;
+        }
       }
       &__subitem {
         &:not(:last-child) {
@@ -235,11 +321,17 @@
             background-color: var(--violet-7);
           }
         }
+        @include w1023 {
+          line-height: 31px;
+        }
       }
     }
   }
   &__text {
     flex: 0 0 65.7%;
+    @include w1023 {
+      flex: 0 0 calc(100% - 356px);
+    }
     p {
       max-width: 640px;
     }
@@ -273,6 +365,10 @@
     font-size: 24px;
     line-height: 33px;
     text-transform: uppercase;
+    @include w1023 {
+      font-size: 22px;
+      line-height: 30px;
+    }
     &:not(:first-child) {
       margin-top: 50px;
     }

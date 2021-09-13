@@ -1,17 +1,29 @@
 .form {
   &__input {
     margin-bottom: 20px;
-    + .form__privacy {
+    & + .form__privacy {
       margin-top: 30px;
+      @include w1023 {
+        margin-top: 20px;
+      }
     }
   }
   &__textarea {
     margin-bottom: 50px;
+    @include w1023 {
+      margin-bottom: 40px;
+    }
   }
   &__select {
     position: relative;
     width: 100%;
     margin-bottom: 20px;
+    & + .form__privacy {
+      margin-top: 30px;
+      @include w1023 {
+        margin-top: 20px;
+      }
+    }
     &.select--active {
       .form-select__btn:before {
         top: 22px;
@@ -57,9 +69,8 @@
         border-bottom: 2px solid var(--neutrals-4);
         transition: 0.2s;
         @include w1023 {
-          top: 13px;
-          width: 8px;
-          height: 8px;
+          top: 16px;
+          right: 34px;
         }
       }
       &.empty {

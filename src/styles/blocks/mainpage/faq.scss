@@ -1,12 +1,18 @@
 .faq {
   padding: 120px 0 180px;
   background: var(--linear-40);
+  @include w1023 {
+    padding: 100px 0;
+  }
   &__list {
     max-width: 753px;
     padding: 15px 30px;
     list-style: none;
     background-color: var(--neutrals-12);
     border-radius: 7px;
+    @include w359 {
+      padding: 15px 24px;
+    }
   }
   &__item {
     &:last-child {
@@ -17,9 +23,8 @@
     }
     &--active {
       .faq-item__title:after {
-        top: 20px;
         right: 6px;
-        transform: rotate(45deg);
+        transform: translateY(-8px) rotate(45deg);
         border-color: var(--violet-1);
       }
       .faq-item__content {
@@ -59,12 +64,19 @@
           }
         }
       }
+      @include w1023 {
+        font-size: 16px;
+        line-height: 22px;
+      }
+      @include w359 {
+        padding: 15px 25px 15px 0;
+      }
       &:after {
         content: '';
         position: absolute;
-        top: 23px;
+        top: 50%;
         right: 9px;
-        transform: rotate(-45deg);
+        transform: translateY(-50%) rotate(-45deg);
         width: 10px;
         height: 10px;
         border-right: 2px solid var(--neutrals-1);
@@ -78,6 +90,9 @@
       padding-right: 8%;
       border-bottom: 1px solid var(--violet-5);
       color: var(--neutrals-3);
+      @include w1023 {
+        padding-right: 0;
+      }
     }
   }
 }

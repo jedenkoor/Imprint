@@ -5,12 +5,39 @@
   padding-bottom: 100px;
   background-color: var(--violet-2);
   color: var(--neutrals-12);
+  overflow: hidden;
+  @include w1200 {
+    margin-bottom: 120px;
+    padding-bottom: 79px;
+  }
+  @include w1023 {
+    margin-top: -61px;
+    margin-bottom: 80px;
+    padding-top: 141px;
+  }
   &__container {
     display: flex;
     justify-content: space-between;
+    @include w1200 {
+      display: block;
+    }
   }
   &__col {
     flex: 0 0 580px;
+    @include w1366 {
+      flex: 0 0 calc(100% - 590px);
+    }
+    @include w1200 {
+      flex: auto;
+      width: 570px;
+      margin-bottom: 50px;
+    }
+    @include w1023 {
+      width: 445px;
+    }
+    @include w767 {
+      width: auto;
+    }
   }
   &__title {
     margin-top: 0;
@@ -20,19 +47,52 @@
     font-size: 58px;
     line-height: 70px;
     text-transform: uppercase;
+    @include w1366 {
+      font-size: 49px;
+      line-height: 63px;
+    }
+    @include w1023 {
+      margin-bottom: 10px;
+      font-size: 40px;
+      line-height: 55px;
+    }
+    @include w359 {
+      font-size: 28px;
+      line-height: 38px;
+    }
   }
   &__text {
     margin-bottom: 83px;
     font-size: 18px;
     line-height: 25px;
+    @include w1200 {
+      margin-bottom: 30px;
+    }
+    @include w1023 {
+      font-size: 14px;
+      line-height: 19px;
+    }
   }
   &__btns {
     display: flex;
+    @include w767 {
+      display: block;
+    }
   }
   &__btn {
     padding: 10px 26px;
+    @include w1023 {
+      padding: 10px 28.5px;
+    }
+    @include w767 {
+      width: 100%;
+    }
     &:not(:last-child) {
       margin-right: 15px;
+      @include w767 {
+        margin-right: 0;
+        margin-bottom: 15px;
+      }
     }
     &.primary-btn {
       background: var(--neutrals-12);
@@ -80,6 +140,12 @@
   }
   &__card {
     flex: 0 0 550px;
+    @include w1200 {
+      flex: auto;
+    }
+    @include w767 {
+      position: relative;
+    }
   }
   &-card {
     &__title {
@@ -92,6 +158,13 @@
       font-size: 18px;
       line-height: 25px;
       color: var(--violet-2);
+      @include w1023 {
+        padding: 14px 30px;
+        font-size: 16px;
+        line-height: 22px;
+        background-color: var(--violet-3);
+        color: var(--neutrals-12);
+      }
     }
     &__content {
       display: grid;
@@ -101,6 +174,14 @@
       background-color: var(--violet-2);
       box-shadow: var(--on-violet-shadow);
       border-radius: 0px 0px 7px 7px;
+      @include w1023 {
+        grid-template-columns: repeat(2, calc(50% - 12px));
+        grid-gap: 24px;
+      }
+      @include w767 {
+        grid-template-columns: auto;
+        grid-gap: 15px;
+      }
     }
     &__col {
       display: flex;
@@ -110,15 +191,25 @@
         .banner-card__row {
           padding-bottom: 0;
           border: none;
+          @include w767 {
+            margin-bottom: 9px;
+            padding-top: 15px;
+            border-top: 1px solid var(--violet-3);
+          }
         }
       }
     }
     &__row {
       display: flex;
+      width: 100%;
       &:not(:last-child) {
         margin-bottom: 20px;
         padding-bottom: 20px;
         border-bottom: 1px solid var(--violet-3);
+        @include w1023 {
+          margin-bottom: 15px;
+          padding-bottom: 15px;
+        }
       }
     }
     &__subtitle {
@@ -126,10 +217,18 @@
       font-weight: bold;
       font-size: 18px;
       line-height: 25px;
+      @include w1023 {
+        font-size: 16px;
+        line-height: 22px;
+      }
     }
     &__value {
       font-size: 18px;
       line-height: 25px;
+      @include w1023 {
+        font-size: 16px;
+        line-height: 22px;
+      }
       &:not(:last-child) {
         margin-right: 15px;
       }
@@ -137,6 +236,9 @@
     &__hint {
       position: relative;
       display: flex;
+      @include w767 {
+        position: static;
+      }
     }
     &-hint {
       &__icon {
@@ -145,25 +247,13 @@
         padding: 0;
         background: url('../images/icon-hint.svg') center/contain no-repeat;
         border: none;
-        @include hover {
-          &:hover,
-          &:focus {
-            & + .banner-card-hint__content {
-              opacity: 1;
-              visibility: visible;
-              transition: opacity 0.3s, transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1),
-                visibility 0s 0s;
-            }
-          }
-        }
-        @include active {
-          &:active {
-            & + .banner-card-hint__content {
-              opacity: 1;
-              visibility: visible;
-              transition: opacity 0.3s, transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1),
-                visibility 0s 0s;
-            }
+        &:hover,
+        &:focus {
+          & + .banner-card-hint__content {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.3s, transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1),
+              visibility 0s 0s;
           }
         }
       }
@@ -186,6 +276,11 @@
         visibility: hidden;
         transition: opacity 0.3s, transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1),
           visibility 0s 0.3s;
+        @include w767 {
+          bottom: auto;
+          transform: translate(-50%, 30px);
+          max-width: calc(100vw - 48px);
+        }
       }
     }
     &__map {
@@ -193,6 +288,10 @@
       flex: 1;
       border-radius: 7px;
       overflow: hidden;
+      @include w767 {
+        flex: auto;
+        height: 166px;
+      }
       [class*='ymaps-2'][class*='-copyrights-pane'],
       [class*='ymaps-2'][class*='-controls__toolbar'],
       [class*='ymaps-2'][class*='-controls__bottom'] {

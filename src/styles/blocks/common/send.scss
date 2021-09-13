@@ -1,0 +1,75 @@
+.send {
+  position: fixed;
+  right: 60px;
+  bottom: 100px;
+  display: flex;
+  align-items: center;
+  padding: 30px;
+  background-color: var(--neutrals-12);
+  box-shadow: var(--card-shadow);
+  border-radius: 7px;
+  @include w1023 {
+    right: 40px;
+    bottom: 60px;
+  }
+  @include w767 {
+    right: 24px;
+    left: 24px;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+  @include w359 {
+    padding: 24px;
+  }
+  &__text {
+    margin-right: 30px;
+    margin-bottom: 0;
+    font-size: 18px;
+    line-height: 25px;
+    @include w1023 {
+      font-size: 16px;
+      line-height: 22px;
+    }
+    @include w767 {
+      margin-top: 20px;
+      margin-right: 0;
+    }
+    br {
+      @include w767 {
+        display: none;
+      }
+    }
+  }
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: var(--violet-7);
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    @include hover {
+      &:hover,
+      &:focus {
+        background: var(--violet-3);
+        path {
+          stroke: var(--neutrals-12);
+        }
+      }
+    }
+    @include active {
+      &:active {
+        background: var(--violet-3);
+        path {
+          stroke: var(--neutrals-12);
+        }
+      }
+    }
+    path {
+      transition: stroke 0.2s;
+    }
+  }
+}

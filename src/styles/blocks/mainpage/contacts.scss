@@ -3,6 +3,10 @@
     display: grid;
     grid-template-columns: repeat(2, calc(50% - 20px));
     grid-gap: 40px;
+    @include w1023 {
+      grid-template-columns: auto;
+      grid-gap: 20px;
+    }
   }
   &__col {
     display: flex;
@@ -12,6 +16,9 @@
     padding: 30px;
     background: var(--linear-40);
     border-radius: 7px;
+    @include w359 {
+      padding: 24px;
+    }
     &:last-child {
       position: relative;
       &:after {
@@ -22,12 +29,22 @@
         width: 191px;
         height: 167px;
         background: url('../images/icon-contacts.png') center/contain no-repeat;
+        @include w1023 {
+          width: 176px;
+          height: 154px;
+        }
+        @include w767 {
+          display: none;
+        }
       }
     }
   }
   &__subtitle {
     margin-bottom: 10px;
     color: var(--violet-4);
+    @include w1023 {
+      margin-bottom: 8px;
+    }
   }
   &__link {
     transition: color 0.2s;

@@ -1,17 +1,33 @@
 .included {
   padding: 120px 0;
   background: var(--linear-40);
+  @include w1023 {
+    padding: 100px 0;
+  }
   &__list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 40px;
     padding-left: 0;
     list-style: none;
+    @include w1200 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include w1023 {
+      grid-gap: 24px;
+    }
+    @include w767 {
+      grid-template-columns: auto;
+    }
   }
   &__item {
+    position: relative;
     padding: 30px;
     background-color: var(--neutrals-12);
     border-radius: 7px;
+    @include w359 {
+      padding: 24px;
+    }
   }
   &-item {
     &__icon {
@@ -23,6 +39,15 @@
       margin-bottom: 20px;
       border-radius: 50%;
       background-color: var(--violet-1);
+    }
+    &__subicon {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      @include w359 {
+        top: 24px;
+        right: 24px;
+      }
     }
   }
 }

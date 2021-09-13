@@ -1,6 +1,9 @@
 .features {
   &__title {
     margin-bottom: 87px;
+    @include w1023 {
+      margin-bottom: 82px;
+    }
   }
   &__list {
     display: grid;
@@ -8,6 +11,16 @@
     grid-gap: 40px;
     padding-left: 0;
     list-style: none;
+    @include w1200 {
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 60px 40px;
+    }
+    @include w1023 {
+      grid-gap: 56px 24px;
+    }
+    @include w767 {
+      grid-template-columns: auto;
+    }
   }
   &__item {
     position: relative;
@@ -15,6 +28,12 @@
     background: var(--neutrals-12);
     box-shadow: var(--card-shadow);
     border-radius: 7px;
+    @include w1023 {
+      padding: 57px 30px 30px;
+    }
+    @include w359 {
+      padding: 57px 24px 24px;
+    }
   }
   &-item {
     &__icon {
@@ -26,6 +45,9 @@
       background-position: center;
       background-size: contain;
       background-repeat: no-repeat;
+      @include w1023 {
+        width: 92px;
+      }
     }
     &__title {
       margin-top: 0;
@@ -33,6 +55,10 @@
       font-weight: bold;
       font-size: 18px;
       line-height: 25px;
+      @include w1023 {
+        font-size: 16px;
+        line-height: 22px;
+      }
     }
     &__text {
       color: var(--neutrals-3);

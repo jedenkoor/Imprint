@@ -10,6 +10,7 @@
     rgba(232, 244, 255, 0.4) -50.97%,
     rgba(237, 235, 255, 0.4) 126.1%
   );
+  --background-opasity: rgba(69, 69, 69, 0.5);
   --violet-1: #5b72f2;
   --violet-2: #6979f8;
   --violet-3: #8794f9;
@@ -151,6 +152,9 @@ ol {
 p {
   margin-top: 0;
   margin-bottom: 25px;
+  @include w1023 {
+    margin-bottom: 19px;
+  }
   &:last-child {
     margin-bottom: 0;
   }
@@ -222,6 +226,10 @@ input[type='number'] {
     margin-bottom: 50px;
     font-size: 34px;
     line-height: 46px;
+  }
+  @include w359 {
+    font-size: 30px;
+    line-height: 42px;
   }
 }
 
@@ -371,6 +379,8 @@ textarea {
 @import 'blocks/common/breadcrumbs';
 @import 'blocks/common/footer';
 @import 'blocks/common/form';
+@import 'blocks/common/send';
+@import 'blocks/common/popup';
 @import 'blocks/mainpage/banner';
 @import 'blocks/mainpage/about';
 @import 'blocks/mainpage/features';
