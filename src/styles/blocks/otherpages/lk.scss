@@ -480,12 +480,14 @@
         }
       }
       &__overlay {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background-color: var(--background-opasity);
+        @include w1023 {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-color: var(--background-opasity);
+        }
       }
       &__title {
         margin-bottom: 10px;
