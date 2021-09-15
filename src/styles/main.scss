@@ -319,6 +319,9 @@ input[type='number'] {
 }
 
 input[type='text'],
+input[type='email'],
+input[type='tel'],
+input[type='password'],
 textarea {
   width: 100%;
   border: 2px solid transparent;
@@ -354,14 +357,24 @@ textarea {
   &.input-border {
     border-color: var(--violet-3);
   }
+  &[disabled] {
+    text-overflow: ellipsis;
+    pointer-events: none;
+  }
 }
 
-input[type='text'] {
+input[type='text'],
+input[type='email'],
+input[type='tel'],
+input[type='password'] {
   height: 52px;
   padding: 0 28px;
   border-radius: 100px;
   @include w1023 {
     height: 49px;
+  }
+  @include w359 {
+    padding: 0 22px;
   }
 }
 
@@ -372,6 +385,9 @@ textarea {
   border-radius: 26px;
   @include w1023 {
     height: 135px;
+  }
+  @include w359 {
+    padding: 13px 22px;
   }
 }
 
@@ -392,3 +408,4 @@ textarea {
 @import 'blocks/otherpages/documentation';
 @import 'blocks/otherpages/text';
 @import 'blocks/otherpages/404';
+@import 'blocks/otherpages/lk';

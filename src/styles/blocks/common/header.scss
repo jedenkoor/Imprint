@@ -705,6 +705,12 @@
           transition: stroke 0.2s;
         }
       }
+      &--active {
+        color: var(--violet-1);
+        path {
+          stroke: var(--violet-1);
+        }
+      }
       &--exit {
         width: 100%;
         padding: 0;

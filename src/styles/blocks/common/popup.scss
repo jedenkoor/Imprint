@@ -26,6 +26,10 @@
     padding: 80px;
     background-color: var(--neutrals-12);
     border-radius: 7px;
+    @include w767 {
+      padding: 80px 24px;
+      border-radius: 0;
+    }
   }
   &__close {
     position: absolute;
@@ -35,6 +39,10 @@
     background: none;
     border: none;
     cursor: pointer;
+    @include w767 {
+      top: 24px;
+      right: 24px;
+    }
     @include hover {
       &:hover,
       &:focus {
@@ -62,8 +70,12 @@
     font-size: 34px;
     line-height: 46px;
     text-transform: uppercase;
+    @include w767 {
+      font-size: 30px;
+      line-height: 41px;
+    }
   }
-  &-tariffs {
+  &-tariff {
     &__profiles {
       display: flex;
       align-items: center;
@@ -72,11 +84,152 @@
       padding-bottom: 20px;
       border-bottom: 1px solid var(--neutrals-8);
     }
+    &-profiles {
+      &__select {
+        position: relative;
+        &.select--active {
+          .popup-tariff-profiles__btn:after {
+            transform: translateY(3px) rotate(-45deg) scale(-1);
+          }
+        }
+      }
+      &__btn {
+        display: flex;
+        align-items: center;
+        padding: 4px 8px;
+        background: var(--neutrals-10);
+        border: none;
+        border-radius: 7px;
+        font-size: 14px;
+        line-height: 19px;
+        color: var(--neutrals-2);
+        cursor: pointer;
+        transition: color 0.2s;
+        @include hover {
+          &:hover,
+          &:focus {
+            color: var(--violet-1);
+          }
+        }
+        @include active {
+          &:active {
+            color: var(--violet-1);
+          }
+        }
+        &:after {
+          content: '';
+          display: block;
+          width: 10px;
+          height: 10px;
+          margin-left: 10px;
+          margin-right: 8px;
+          border-left: 2px solid var(--neutrals-2);
+          border-bottom: 2px solid var(--neutrals-2);
+          transform: translateY(-2px) rotate(-45deg);
+          transition: transform 0.2s;
+        }
+      }
+      &__list {
+        position: absolute;
+        top: calc(100% + 10px);
+        right: 0;
+        padding: 4px 10px;
+        background: var(--neutrals-12);
+        box-shadow: var(--inputs-shadow);
+        border-radius: 7px;
+      }
+      &__item {
+        &:not(:last-child) {
+          span {
+            border-bottom: 1px solid var(--neutrals-9);
+          }
+        }
+        input {
+          &:checked + span {
+            color: var(--violet-1);
+          }
+          &:focus + span {
+            color: var(--lilac-1);
+          }
+        }
+        span {
+          display: block;
+          width: 100%;
+          padding: 6px 0;
+          white-space: nowrap;
+          font-size: 14px;
+          line-height: 19px;
+          text-align: right;
+          cursor: pointer;
+          transition: color 0.2s;
+          @include hover {
+            &:hover {
+              color: var(--lilac-1);
+            }
+          }
+          @include active {
+            &:active {
+              color: var(--lilac-1);
+            }
+          }
+        }
+      }
+    }
     &__row {
       display: flex;
+      margin-bottom: 30px;
     }
     &__timepayment {
-      margin-bottom: 30px;
+      &:not(:last-child) {
+        margin-right: 30px;
+      }
+      input {
+        &:checked + span:after {
+          opacity: 1;
+        }
+        &:focus + span {
+          color: var(--violet-1);
+        }
+      }
+      span {
+        position: relative;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        transition: color 0.2s;
+        @include hover {
+          &:hover,
+          &:focus {
+            color: var(--violet-1);
+          }
+        }
+        @include active {
+          &:active {
+            color: var(--violet-1);
+          }
+        }
+        &:before {
+          content: '';
+          width: 19px;
+          height: 19px;
+          margin-right: 10px;
+          border-radius: 50%;
+          border: 1px solid var(--neutrals-7);
+        }
+        &:after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 3px;
+          transform: translateY(-50%);
+          width: 13.3px;
+          height: 13.3px;
+          border-radius: 50%;
+          background-color: var(--violet-3);
+          opacity: 0;
+          transition: opacity 0.2s;
+        }
+      }
     }
     &__price {
       margin-bottom: 50px;
@@ -88,6 +241,247 @@
       line-height: 46px;
       text-transform: uppercase;
       color: var(--violet-2);
+    }
+    &__content {
+      margin-bottom: 50px;
+      padding: 30px;
+      background-color: var(--neutrals-12);
+      border-radius: 7px;
+      box-shadow: var(--card-shadow);
+      @include w359 {
+        padding: 24px;
+      }
+      p {
+        margin-bottom: 0;
+      }
+    }
+    &__list {
+      padding-left: 0;
+      list-style: none;
+    }
+    &__item {
+      position: relative;
+      margin-top: 18px;
+      padding-top: 18px;
+      padding-left: 29px;
+      border-top: 1px solid var(--neutrals-9);
+      font-size: 14px;
+      line-height: 19px;
+      &:before {
+        content: '';
+        position: absolute;
+        top: 19px;
+        left: 0;
+        width: 19px;
+        height: 19px;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+      &[data-ok='ok']:before {
+        background-image: url('../images/icon-tariffs-ok.svg');
+      }
+      &[data-ok='notok']:before {
+        background-image: url('../images/icon-tariffs-notok.svg');
+      }
+    }
+    &__subtitle {
+      margin-bottom: 30px;
+      font-weight: bold;
+      @include w767 {
+        margin-bottom: 25px;
+      }
+    }
+    &__payments {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 15px;
+      margin-bottom: 30px;
+      @include w767 {
+        margin-bottom: 25px;
+      }
+    }
+    &__payment {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 90px;
+      background: var(--linear-for-card);
+      border-radius: 7px;
+      cursor: pointer;
+      @include w767 {
+        height: 59px;
+      }
+      input {
+        &:checked + span {
+          transform: scale(0.9);
+        }
+        &:focus + span {
+          border-color: var(--violet-1);
+        }
+      }
+      span {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 7px;
+        border: 1px solid transparent;
+        transition: 0.2s;
+        @include hover {
+          &:hover {
+            border-color: var(--violet-1);
+          }
+        }
+        @include active {
+          &:active {
+            border-color: var(--violet-1);
+          }
+        }
+      }
+    }
+    &__btn {
+      width: 100%;
+      padding: 10px 0;
+    }
+  }
+  &-auth {
+    &__socials {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 35px;
+      padding: 20px 30px;
+      border-radius: 7px;
+      border: 2px solid var(--violet-7);
+      @include w767 {
+        display: block;
+      }
+      @include w359 {
+        padding: 20px 24px;
+      }
+    }
+    &-socials {
+      &__title {
+        font-weight: bold;
+        @include w767 {
+          display: block;
+          margin-bottom: 20px;
+        }
+      }
+      &__list {
+        display: flex;
+        padding-left: 0;
+        list-style: none;
+      }
+      &__item {
+        &:not(:last-child) {
+          margin-right: 15px;
+        }
+      }
+      &__link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 7px;
+        background-color: var(--violet-7);
+        transition: background-color 0.2s;
+        @include hover {
+          &:hover,
+          &:focus {
+            background-color: var(--violet-1);
+            path {
+              stroke: var(--neutrals-12);
+            }
+          }
+        }
+        @include active {
+          &:active {
+            background-color: var(--violet-1);
+            path {
+              stroke: var(--neutrals-12);
+            }
+          }
+        }
+        path {
+          transition: stroke 0.2s;
+        }
+      }
+    }
+  }
+  &-lk {
+    &__rights {
+      margin-bottom: 30px;
+      padding: 20px 30px 5px;
+      border: 2px solid var(--violet-7);
+      border-radius: 7px;
+      @include w359 {
+        padding: 20px 24px 5px;
+      }
+    }
+    &-rights {
+      &__title {
+        display: block;
+        margin-bottom: 15px;
+        font-size: 14px;
+        line-height: 19px;
+        color: var(--neutrals-4);
+      }
+      &__list {
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 0;
+        list-style: none;
+      }
+      &__item {
+        margin-bottom: 15px;
+        &:not(:last-child) {
+          margin-right: 15px;
+        }
+        input {
+          &:checked + span {
+            background-color: var(--violet-3);
+            color: var(--neutrals-12);
+          }
+        }
+        span {
+          display: block;
+          padding: 5px 15px;
+          border-radius: 50px;
+          background-color: var(--violet-7);
+          color: var(--violet-2);
+          cursor: pointer;
+          transition: 0.2s;
+          @include hover {
+            &:hover,
+            &:focus {
+              background-color: var(--violet-3);
+              color: var(--neutrals-12);
+            }
+          }
+          @include active {
+            &:active {
+              background-color: var(--violet-3);
+              color: var(--neutrals-12);
+            }
+          }
+        }
+      }
+    }
+    &__subtitle {
+      margin-top: 50px;
+      margin-bottom: 30px;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 27px;
+      @include w767 {
+        font-size: 18px;
+        line-height: 25px;
+      }
     }
   }
 }

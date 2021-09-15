@@ -1,0 +1,23 @@
+.popup#lk-creation(style="display: none")
+  .popup__overlay
+  .popup__content
+    button.popup__close
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18 6L6 18" stroke="#BFBFBF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M6 6L18 18" stroke="#BFBFBF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    h3.popup__title Создание папки
+    form.form(action="#")
+      .form__block
+        input.form__input(type="text" placeholder="Введите имя папки")
+      .form__block
+        textarea.form__textarea(placeholder="Добавьте заметку о вашей папке")
+      button.primary-btn.form__btn Создать
+    p.popup-lk__subtitle Или добавьте папку по токену
+    form.form(action="#")
+      .form__block
+        input.form__input(type="text" placeholder="Введите токен")
+      button.primary-btn.form__btn Добавить
+    
+
+

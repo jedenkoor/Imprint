@@ -254,10 +254,13 @@ block content
       h2.title Есть вопросы? напишите нам!
       .contacts__content
         form.form.contacts__col(action="#")
-          input.form__input(type="text" placeholder="Имя")
-          input.form__input(type="text" placeholder="Телефон")
-          input.form__input(type="text" placeholder="E-mail")
-          .form__select.form-select.select(select--active)
+          .form__block
+            input.form__input(type="text" placeholder="Имя")
+          .form__block  
+            input.form__input(type="text" placeholder="Телефон")
+          .form__block
+            input.form__input(type="text" placeholder="E-mail")
+          .form__select.form__block.form-select.select(select--active)
             button.form-select__btn.select-open.empty Тема сообщения
             ul.form-select__content.form-select-content.select-content 
               li.form-select-content__item 
@@ -276,7 +279,8 @@ block content
                 label.form-select-content__label
                   input.visually-hidden(type="radio" name="theme")
                   span Другое
-          textarea.form__textarea(placeholder="Сообщение")
+          .form__block
+            textarea.form__textarea(placeholder="Сообщение")
           p.form__privacy Нажимая на кнопку, вы соглашаетесь с
             a(href="#") политикой конфиденциальности
           button.primary-btn.form__btn Отправить

@@ -1,29 +1,18 @@
 .form {
-  &__input {
-    margin-bottom: 20px;
-    & + .form__privacy {
-      margin-top: 30px;
-      @include w1023 {
-        margin-top: 20px;
-      }
+  &__block {
+    position: relative;
+    width: 100%;
+    & + & {
+      margin-top: 20px;
     }
-  }
-  &__textarea {
-    margin-bottom: 50px;
-    @include w1023 {
-      margin-bottom: 40px;
+    & + .form__error,
+    & + .form__hint {
+      margin-top: 35px;
     }
   }
   &__select {
     position: relative;
     width: 100%;
-    margin-bottom: 20px;
-    & + .form__privacy {
-      margin-top: 30px;
-      @include w1023 {
-        margin-top: 20px;
-      }
-    }
     &.select--active {
       .form-select__btn:before {
         top: 22px;
@@ -53,6 +42,9 @@
         font-size: 14px;
         line-height: 19px;
       }
+      @include w359 {
+        padding: 0 22px;
+      }
       &:hover,
       &:focus {
         border-color: var(--violet-2);
@@ -71,6 +63,9 @@
         @include w1023 {
           top: 16px;
           right: 34px;
+        }
+        @include w359 {
+          right: 20px;
         }
       }
       &.empty {
@@ -124,12 +119,116 @@
     }
   }
   &__privacy {
-    margin-bottom: 15px;
+    margin-top: 50px;
+    margin-bottom: 10px;
     font-size: 12px;
     line-height: 16px;
+    & + .form__btn {
+      margin-top: 0;
+    }
   }
   &__btn {
     width: 100%;
+    margin-top: 30px;
     padding: 10px 0;
+  }
+  &__hint {
+    margin-bottom: 0;
+    & + & {
+      margin-top: 10px;
+    }
+    &--disable {
+      color: var(--neutrals-4);
+    }
+    a {
+      margin-left: 0;
+    }
+  }
+  &__text {
+    margin-top: 20px;
+  }
+  &__error {
+    margin-bottom: 0;
+    color: var(--red);
+    & + .form__hint {
+      margin-top: 10px;
+    }
+  }
+  &__togglepass {
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100% - 6px);
+    width: 74px;
+    padding: 0;
+    background: var(--neutrals-12);
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    @include w359 {
+      width: 64px;
+    }
+    @include hover {
+      &:hover,
+      &:focus {
+        path {
+          stroke: var(--violet-1);
+        }
+      }
+    }
+    @include active {
+      &:active {
+        path {
+          stroke: var(--violet-1);
+        }
+      }
+    }
+    & + input {
+      padding-right: 80px;
+      @include w359 {
+        padding-right: 70px;
+      }
+    }
+    svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.2s;
+      path {
+        transition: stroke 0.2s;
+      }
+    }
+  }
+  input {
+    &[type='password'] {
+      & + .form__togglepass .hidepass {
+        opacity: 0;
+      }
+    }
+    &[type='text'] {
+      & + .form__togglepass .openpass {
+        opacity: 0;
+      }
+    }
+  }
+  &__label {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    color: var(--violet-4);
+    @include w1023 {
+      line-height: 18px;
+    }
+    & + input {
+      padding-right: 110px;
+      @include w767 {
+        padding-right: 100px;
+      }
+    }
   }
 }

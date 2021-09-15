@@ -1,0 +1,19 @@
+.popup#reset(style="display: none")
+  .popup__overlay
+  .popup__content
+    button.popup__close
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18 6L6 18" stroke="#BFBFBF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M6 6L18 18" stroke="#BFBFBF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    h3.popup__title Сброс пароля
+    form.form(action="#")
+      .form__block
+        input.form__input(type="email" placeholder="E-mail")
+      p.form__error Пользователь с тамким E-mail не существует
+      p.form__hint Мы отправим ссылку для сброса пароля на ваш E-mail
+      p.form__privacy Нажимая на кнопку, вы соглашаетесь с
+        a(href="#") политикой конфиденциальности
+      button.primary-btn.form__btn Отправить
+
+
